@@ -1,0 +1,245 @@
+body {
+    background-color: #e8f5e9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* For Responsive page */
+@media (max-width: 480px) {
+  header nav ul {
+    font-size: 0.8em; 
+  }
+  footer nav ul {
+    font-size: 0.8em; 
+  }
+}
+
+/* scroll */
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 5px;
+}
+.discount-price {
+  color: #f00;
+  font-weight: bold;
+}
+.logo{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ddd;
+  position: absolute;
+  margin-top: 0;
+  top: 10px;
+}
+
+.product-list {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: scroll-loop 20s linear infinite; 
+  position: relative;
+}
+
+@keyframes scroll-loop {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); } 
+}
+
+/* navbar */
+header {
+  height: 30px;
+  background-color: #4CAF50;
+  padding: 15px 20px;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin-left: 37%;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a{
+  color: white;
+  text-decoration: none; 
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+header nav ul li a:hover {
+  background-color: #388E3C;
+}
+/* positioning */
+.auth {
+  display: flex;  
+  list-style: none;  
+  padding: 0;  
+  margin: 0;
+}
+
+.auth {
+  margin-left: auto;  
+}
+
+.auth a {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* body */
+  .main {
+    background-color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .main h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #333;
+  }
+  
+  .main p {
+    font-size: 1.2em;
+    margin: 10px 0 20px;
+    color: #666;
+  }
+  
+  .cta-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #388E3C;
+  }
+  
+  section {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  section p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  /* footer */
+  
+  footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  footer nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  footer nav ul li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  footer nav ul li a {
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    padding: 5px 10px;
+  }
+  
+  footer nav ul li a:hover {
+    background-color: #388E3C;
+  }
+  
+  .copyright {
+    font-size: 0.8em; 
+    text-align: center; 
+  }
+  /* contaniner for market vendors */
+  .vendor {
+    background-color: white;
+    padding: 50px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin: 10px;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 5px; 
+  }
+  
+  .vendor > img {
+    width: 25%; 
+    object-fit: cover; 
+    border-radius: 8px;
+  }
+
+  /* User reviews */
+  section#comments {
+    background-color: #f5f5f5; 
+    padding: 20px;
+    border-radius: 5px; 
+    margin: 10px 0; 
+  }
+  
+  section#comments h2 {
+    margin-bottom: 10px; 
+  }
+  
+  section#comments form {
+    display: flex; 
+    flex-direction: column; 
+  }
+  
+  section#comments form textarea {
+    width: 90%;
+    margin-left: 70px;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+  }
+  
+  section#comments form button {
+    width: fit-content;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 1342px;
+  }
+  
+  section#comments form button:hover {
+    background-color: #388E3C;
+  }
+
+
+  
