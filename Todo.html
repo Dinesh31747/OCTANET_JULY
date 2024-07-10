@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="con-bg">
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div class="input-container">
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <label>
+                <input type="checkbox" id="deadline-checkbox"> Add Deadline
+            </label>
+            <input type="datetime-local" id="deadline" placeholder="Deadline" style="display: none;">
+            <button id="add-task">Add</button>
+        </div>
+        <ul id="task-list"></ul>
+    </div>
+    </div>
+
+    <script>
+        document.getElementById('deadline-checkbox').addEventListener('change', function() {
+            const deadlineInput = document.getElementById('deadline');
+            if (this.checked) {
+                deadlineInput.style.display = 'block';
+            } else {
+                deadlineInput.style.display = 'none';
+                deadlineInput.value = '';
+            }
+        });
+
+        document.getElementById('add-task').addEventListener('click', function() {
+            const taskText = document.getElementById('new-task').value;
+            const deadline = document.getElementById('deadline').value;
+            const deadlineCheckbox = document.getElementById('deadline-checkbox').checked;
+            if (taskText) {
+                const taskList = document.getElementById('task-list');
+                const newTask = document.createElement('li');
+
+                const timestamp = new Date().toLocaleString();
+
+                let taskHTML = `<div>
+                                    <span class="task-text">${taskText}</span>
+                                    <span class="timestamp">Added on: ${timestamp}</span>`;
+
+                if (deadlineCheckbox && deadline) {
+                    taskHTML += `<span class="deadline">Deadline: ${new Date(deadline).toLocaleString()}</span>`;
+                }
+
+                taskHTML += `</div>
+                             <button class="complete-task">Mark as Complete</button>
+                             <button class="delete-task">delete</button>`;
+
+                newTask.innerHTML = taskHTML;
+                taskList.appendChild(newTask);
+                document.getElementById('new-task').value = '';
+                document.getElementById('deadline').value = '';
+                document.getElementById('deadline').style.display = 'none';
+                document.getElementById('deadline-checkbox').checked = false;
+
+                newTask.querySelector('.complete-task').addEventListener('click', function() {
+                    const taskTextElement = newTask.querySelector('.task-text');
+                    const completedTimestamp = new Date().toLocaleString();
+                    taskTextElement.textContent = `${taskText} (Completed)`;
+                    taskTextElement.classList.add('completed');
+                    const completedElement = document.createElement('span');
+                    completedElement.className = 'completed-timestamp';
+                    completedElement.textContent = `Completed on: ${completedTimestamp}`;
+                    newTask.querySelector('div').appendChild(completedElement);
+                    this.style.display = 'none';
+                });
+
+                newTask.querySelector('.delete-task').addEventListener('click', function() {
+                    taskList.removeChild(newTask);
+                });
+            } else {
+                alert('Please enter a task.');
+            }
+        });
+    </script>
+</body>
+</html>
